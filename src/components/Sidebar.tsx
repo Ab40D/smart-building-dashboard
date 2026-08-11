@@ -1,5 +1,6 @@
 import { profile } from '../data/profile'
 import { navSections } from '../data/navigation'
+import { ProfilePhoto } from './ProfilePhoto'
 import { IconGithub, IconLinkedin, IconYoutube, IconClose, IconArrowRight } from './icons'
 
 type SidebarProps = {
@@ -19,7 +20,11 @@ export function Sidebar({ active, onSelect, mobileOpen, onMobileClose }: Sidebar
       >
         <div className="flex h-full flex-col">
           <div className="px-7 pt-9 pb-6">
-            <div className="font-display text-3xl font-bold leading-[1.05] tracking-tight">
+            <ProfilePhoto
+              size={72}
+              className="border border-white/15"
+            />
+            <div className="mt-5 font-display text-3xl font-bold leading-[1.05] tracking-tight">
               {profile.firstName.toUpperCase()}
               <br />
               <span className="text-accent">{profile.lastName.toUpperCase()}</span>
