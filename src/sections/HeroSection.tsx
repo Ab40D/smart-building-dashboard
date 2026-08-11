@@ -21,8 +21,8 @@ export function HeroSection({ onJump }: HeroSectionProps) {
         {/* Left — photo + meta column */}
         <div className="md:col-span-4">
           <ProfilePhoto
-            size={300}
-            className="w-full max-w-[300px] aspect-square border border-paper-200"
+            size={240}
+            className="w-full max-w-[240px] aspect-square border border-paper-200"
           />
 
           <div className="mt-6 space-y-3">
@@ -84,7 +84,7 @@ export function HeroSection({ onJump }: HeroSectionProps) {
         <div className="md:col-span-8">
           <p className="h-eyebrow">Portfolio · Online since 2026</p>
 
-          <h1 className="mt-4 font-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight text-ink-900">
+          <h1 className="mt-4 font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-ink-900">
             {profile.firstName}
             <br />
             <span className="text-accent">{profile.lastName}</span>

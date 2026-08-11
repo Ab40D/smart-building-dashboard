@@ -16,34 +16,45 @@ type Props = {
  *      - If it's a relative path (e.g. /images/profile.jpg), Vite serves it
  *        from the public/ folder.
  *
- * If the image can't be loaded (404, network error, etc.), a clean monogram
+ * If the image can't be loaded (404, network error, etc.), a clean
  * placeholder is shown so the layout never breaks.
  */
 export function ProfilePhoto({ size = 96, className = '', ring = false }: Props) {
   const [failed, setFailed] = useState(false)
-  const initials =
-    (profile.firstName?.[0] ?? 'A').toUpperCase() +
-    (profile.lastName?.[0] ?? 'M').toUpperCase()
 
   if (failed) {
     return (
       <div
-        className={`relative flex items-center justify-center overflow-hidden bg-ink-900 text-white ${className}`}
+        className={`relative flex items-center justify-center overflow-hidden bg-paper-100 text-ink-900 ${className}`}
         style={{ width: size, height: size }}
         aria-label="Profile photo placeholder"
         role="img"
       >
-        {/* subtle gradient so the placeholder feels intentional */}
-        <div className="absolute inset-0 bg-gradient-to-br from-ink-700 to-ink-900" />
-        <span
-          className="relative font-display font-bold text-white/90"
-          style={{ fontSize: size * 0.38, letterSpacing: '0.02em' }}
+        {/* Soft hairline pattern so the placeholder reads as intentional */}
+        <div
+          className="absolute inset-0 opacity-[0.18]"
+          style={{
+            backgroundImage:
+              'linear-gradient(135deg, rgba(0,0,0,0.04) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.04) 50%, rgba(0,0,0,0.04) 75%, transparent 75%, transparent)',
+            backgroundSize: '12px 12px',
+          }}
+          aria-hidden
+        />
+        {/* Tiny camera glyph instead of giant initials */}
+        <svg
+          viewBox="0 0 24 24"
+          className="relative h-1/3 w-1/3 text-ink-900/35"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.5}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden
         >
-          {initials}
-        </span>
-        {ring && (
-          <span className="absolute inset-0 ring-1 ring-inset ring-white/10" aria-hidden />
-        )}
+          <path d="M3 7h3l2-2h8l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z" />
+          <circle cx="12" cy="13" r="4" />
+        </svg>
+        {ring && <span className="absolute inset-0 ring-1 ring-inset ring-paper-200" aria-hidden />}
       </div>
     )
   }

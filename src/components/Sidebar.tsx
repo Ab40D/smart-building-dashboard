@@ -40,7 +40,7 @@ export function Sidebar({ active, onSelect, mobileOpen, onMobileClose }: Sidebar
 
           <nav className="mt-2 flex-1 px-3" aria-label="Sections">
             <ul className="space-y-1">
-              {navSections.map((s, i) => {
+              {navSections.map((s) => {
                 const isActive = active === s.id
                 return (
                   <li key={s.id}>
@@ -53,11 +53,6 @@ export function Sidebar({ active, onSelect, mobileOpen, onMobileClose }: Sidebar
                       className={`nav-item group ${isActive ? 'nav-item-active' : ''}`}
                       aria-current={isActive ? 'true' : undefined}
                     >
-                      <span
-                        className={`font-mono text-[10px] ${isActive ? 'text-white' : 'text-white/40'}`}
-                      >
-                        0{i + 1}
-                      </span>
                       <span>{s.label}</span>
                       {isActive && <IconArrowRight className="ml-auto h-3.5 w-3.5" />}
                     </a>
@@ -159,7 +154,7 @@ export function Sidebar({ active, onSelect, mobileOpen, onMobileClose }: Sidebar
           </div>
           <nav className="px-4 py-4" aria-label="Mobile sections">
             <ul className="space-y-1">
-              {navSections.map((s, i) => {
+              {navSections.map((s) => {
                 const isActive = active === s.id
                 return (
                   <li key={s.id}>
@@ -172,7 +167,6 @@ export function Sidebar({ active, onSelect, mobileOpen, onMobileClose }: Sidebar
                       }}
                       className={`nav-item ${isActive ? 'nav-item-active' : ''}`}
                     >
-                      <span className="font-mono text-[10px]">{`0${i + 1}`}</span>
                       <span>{s.label}</span>
                     </a>
                   </li>
