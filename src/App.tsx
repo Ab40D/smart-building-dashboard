@@ -65,14 +65,6 @@ function App() {
     }
   }, [])
 
-  useEffect(() => {
-    const onResize = () => {
-      // no-op; placeholder for any future responsive logic
-    }
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
-
   return (
     <div className="relative min-h-screen bg-white text-ink-900">
       {/* Faint engineering grid texture for the main content */}
@@ -84,7 +76,9 @@ function App() {
         active={active}
         onSelect={handleSelect}
         mobileOpen={mobileOpen}
+        onMobileToggle={() => setMobileOpen((v) => !v)}
         onMobileClose={() => setMobileOpen(false)}
+        onPrint={handleDownload}
       />
 
       <Topbar onDownload={handleDownload} onPrint={handleDownload} />
