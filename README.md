@@ -1,116 +1,48 @@
-# 🏢 Smart Building & Room Dashboard
+# Abdelkhalek Mammeri — Online CV
 
-> **Centralized home lab dashboard** for building management, occupancy tracking, energy monitoring, and smart automation using **KNX, MQTT, ESP32, Shelly, Node-RED, and Home Assistant**.
+Personal online CV / web resume for **Abdelkhalek Mammeri** — Electronics Engineer focused on
+Smart Buildings, Building Automation (BMS / KNX), Industrial IoT and Embedded Systems.
 
-[![GitHub stars](https://img.shields.io/github/stars/abdelkhalek/smart-building-dashboard)](https://github.com/abdelkhalek/smart-building-dashboard/stargazers)
-[![License](https://img.shields.io/github/license/abdelkhalek/smart-building-dashboard)](LICENSE)
+> A serious engineering profile, not a generic developer portfolio.
 
-## 🚀 Features
+## Stack
 
-| Feature | Status | Description |
-|---------|--------|-------------|
-| **Smart Building Dashboard** | 🚧 | Overview of all rooms, devices, and systems |
-| **Room Status Dashboard** | 🚧 | Real-time room occupancy and availability |
-| **Smart Meeting Room** | 🚧 | Booking system for meeting rooms |
-| **Occupancy Counter** | 🚧 | People counting using presence detectors |
-| **Energy Monitoring** | 🚧 | Track power consumption by room/device |
-| **Scene Controller** | 🚧 | Predefined lighting/scenes (home, away, night) |
-| **Smart Light Controller** | 🚧 | Control lights via ESP32, Shelly, KNX |
-| **Presence-Based Lighting** | 🚧 | Auto-turn lights based on occupancy |
-| **Arduino Sensor Hub** | 🚧 | Read sensors (temp, humidity, motion) |
-| **Digital Twin Building** | 🚧 | 3D visualization of building |
+- **React 18** + **TypeScript**
+- **Vite** for dev server and build
+- **Tailwind CSS** for styling
+- Centralized content in `src/data/` (profile, experience, education, projects, skills,
+  certifications, languages, navigation)
 
-## 🏗️ Architecture
-┌─────────────────────────────────────────────────────────┐
-│ React Dashboard (Frontend) │
-│ Port: 3000 / 80 │
-└───────────────────────┬─────────────────────────────────┘
-│ WebSocket / REST API
-┌───────────────────────▼─────────────────────────────────┐
-│ Node.js Backend (Optional) │
-│ Port: 4000 │
-└───────────────────────┬─────────────────────────────────┘
-│ MQTT (1883) / WebSockets
-┌───────────────────────▼─────────────────────────────────┐
-│ MQTT Broker (Mosquitto/EMQX) │
-│ Port: 1883 / 8883 │
-└───────┬───────────────┬───────────────┬─────────────────┘
-│ │ │
-┌───────▼───────┐ ┌────▼───────┐ ┌────▼─────────────────┐
-│ Node-RED │ │ Home │ │ ESP32 / Shelly │
-│ Flows │ │ Assistant │ │ KNX Devices │
-│ Port: 1880 │ │ Port: 8123│ │ (Sensors, Lights) │
-└───────────────┘ └────────────┘ └──────────────────────┘
+## Run locally
 
-text
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| **Frontend** | React, TypeScript, TailwindCSS |
-| **Backend** | Node.js, Express (optional) |
-| **Real-time** | MQTT, WebSocket |
-| **Automation** | Node-RED, Home Assistant |
-| **Protocols** | KNX, MQTT, ZigBee, Modbus TCP |
-| **Hardware** | ESP32, Shelly, KNX IP Interface, WAGO PLC |
-| **Database** | SQLite, InfluxDB (energy data) |
-| **Deployment** | Docker, Proxmox, LXC |
-
-## 📦 Installation
-
-### 1. Clone repository
 ```bash
-git clone https://github.com/abdelkhalek/smart-building-dashboard.git
-cd smart-building-dashboard
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # production build into dist/
+npm run preview  # preview production build
 ```
 
-### 2. Deploy with Docker Compose
-```bash
-docker-compose up -d
-```
+## Sections
 
-This will start:
-- MQTT Broker (Mosquitto)
-- Node-RED
-- Home Assistant
-- Frontend Dashboard
-- Backend API (optional)
+- **About** — professional introduction + engineering profile pillars
+- **Experience** — internships and work history
+- **Education** — degree + final-year project
+- **Projects** — featured (Smart Room) + supporting engineering projects with GitHub links
+- **Skills** — grouped by domain (no fake percentages)
+- **Certifications** — completed certifications, courses and training
+- **Contact** — email, phone, GitHub, LinkedIn, YouTube
 
-### 3. Access services
-| Service | URL |
-|---------|-----|
-| Dashboard | http://localhost:3000 |
-| Node-RED | http://localhost:1880 |
-| Home Assistant | http://localhost:8123 |
-| MQTT Broker | localhost:1883 |
+## Download / Print CV
 
-## 🔧 Configuration
+The website includes a **Download CV** button (top-right) and a **Print** button.
+Both trigger the browser's native print dialog with an **ATS-friendly** single-column
+layout: no tables, no decorative graphics, all information in plain readable text with
+real URLs. In the print dialog, choose **"Save as PDF"** to download.
 
-### MQTT Topics
-See [`mqtt/topics.md`](mqtt/topics.md)
+## Author
 
-### KNX Group Addresses
-See [`knx/group-addresses.md`](knx/group-addresses.md)
-
-### ESP32 Configuration
-See [`esp32/README.md`](esp32/README.md)
-
-## 🤝 Contributing
-
-Contributions welcome! Open issues and PRs.
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE)
-
-## 👤 Author
-
-**Abdelkhalek Mammeri**
-- GitHub: [@abdelkhalek](https://github.com/abdelkhalek)
-- Location: Oran, Algeria
-- Profile: Full-Stack IoT Developer / Junior IoT & Electronics Engineer
-
----
-
-🏗️ Running on **Proxmox** with **ZimaBoard**
+**Abdelkhalek Mammeri** — El Bayadh, Algeria
+- GitHub: <https://github.com/Ab40D>
+- LinkedIn: <https://www.linkedin.com/in/abdelkhalekmammeri/>
+- YouTube: <https://www.youtube.com/@abdelkhalekmammeri>
+- Email: <abdelkhalekmammeri@gmail.com>
