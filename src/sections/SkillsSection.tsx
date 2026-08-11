@@ -5,7 +5,7 @@ export function SkillsSection() {
   return (
     <section id="skills" className="scroll-mt-20 py-16 md:py-24 border-t border-paper-200">
       <SectionHeader
-        index="05 / SKILLS"
+        index="06 / SKILLS"
         title="Technical skills, grouped by domain."
         kicker="Verified · no fake percentages"
       />

@@ -91,3 +91,18 @@
 }
 
 .print-only { display: none; }
+
+/* Lazy-YouTube: when upgraded, the anchor becomes a responsive iframe wrapper */
+.video-embed.is-playing {
+  border-color: #0A0A0A;
+}
+.video-embed.is-playing .video-frame {
+  position: relative;
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

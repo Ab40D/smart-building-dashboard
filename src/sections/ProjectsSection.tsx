@@ -52,7 +52,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="scroll-mt-20 py-16 md:py-24 border-t border-paper-200">
       <SectionHeader
-        index="04 / PROJECTS"
+        index="02 / PROJECTS"
         title="Selected engineering work."
         kicker="Featured + supporting"
       />

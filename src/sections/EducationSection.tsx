@@ -5,7 +5,7 @@ import { IconPin } from '../components/icons'
 export function EducationSection() {
   return (
     <section id="education" className="scroll-mt-20 py-16 md:py-24 border-t border-paper-200">
-      <SectionHeader index="03 / EDUCATION" title="Academic background." kicker="Licence · Engineering" />
+      <SectionHeader index="05 / EDUCATION" title="Academic background." kicker="Licence · Engineering" />
 
       <div className="space-y-10">
         {education.map((edu, idx) => (

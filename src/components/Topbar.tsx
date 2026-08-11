@@ -11,7 +11,7 @@ export function Topbar({ onDownload, onPrint }: TopbarProps) {
       <div className="ml-[300px]">
         <div className="container-cv flex items-center justify-between py-3">
           <p className="font-mono text-[11px] uppercase tracking-wider2 text-muted">
-            Online CV · Updated 2026
+            Portfolio · {new Date().getFullYear()}
           </p>
           <div className="flex items-center gap-2">
             <button

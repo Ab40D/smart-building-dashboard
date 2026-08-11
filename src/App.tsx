@@ -1,10 +1,12 @@
 import { useEffect, useState, useCallback } from 'react'
 import { Sidebar } from './components/Sidebar'
 import { Topbar } from './components/Topbar'
+import { HeroSection } from './sections/HeroSection'
 import { AboutSection } from './sections/AboutSection'
+import { ProjectsSection } from './sections/ProjectsSection'
+import { VideosSection } from './sections/VideosSection'
 import { ExperienceSection } from './sections/ExperienceSection'
 import { EducationSection } from './sections/EducationSection'
-import { ProjectsSection } from './sections/ProjectsSection'
 import { SkillsSection } from './sections/SkillsSection'
 import { CertificationsSection } from './sections/CertificationsSection'
 import { ContactSection } from './sections/ContactSection'
@@ -14,12 +16,11 @@ import { navSections } from './data/navigation'
 const SECTION_IDS = navSections.map((s) => s.id)
 
 function useActiveSection() {
-  const [active, setActive] = useState<string>('about')
+  const [active, setActive] = useState<string>('home')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the most-visible section in the top half of the viewport
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
@@ -64,7 +65,6 @@ function App() {
     }
   }, [])
 
-  // Add padding-top on mobile to clear the fixed top bar
   useEffect(() => {
     const onResize = () => {
       // no-op; placeholder for any future responsive logic
@@ -87,10 +87,12 @@ function App() {
       <main className="md:ml-[300px]">
         <div className="pt-14 md:pt-0">
           <div className="container-cv">
+            <HeroSection onJump={handleSelect} />
+            <ProjectsSection />
+            <VideosSection />
             <AboutSection />
             <ExperienceSection />
             <EducationSection />
-            <ProjectsSection />
             <SkillsSection />
             <CertificationsSection />
             <ContactSection />

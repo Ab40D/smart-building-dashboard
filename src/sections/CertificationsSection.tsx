@@ -12,11 +12,11 @@ function kindLabel(kind: 'certification' | 'course' | 'training') {
 export function CertificationsSection() {
   return (
     <section
-      id="certifications"
+      id="certs"
       className="scroll-mt-20 py-16 md:py-24 border-t border-paper-200"
     >
       <SectionHeader
-        index="06 / CERTIFICATIONS"
+        index="07 / CERTIFICATIONS"
         title="Certifications, courses & languages."
         kicker="Completed · Ongoing"
       />

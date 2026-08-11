@@ -14,7 +14,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="scroll-mt-20 py-16 md:py-24 border-t border-paper-200">
       <SectionHeader
-        index="07 / CONTACT"
+        index="08 / CONTACT"
         title="Let’s build something real."
         kicker="Open to opportunities"
       />
