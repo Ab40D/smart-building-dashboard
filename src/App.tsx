@@ -74,7 +74,12 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-ink-900">
+    <div className="relative min-h-screen bg-white text-ink-900">
+      {/* Faint engineering grid texture for the main content */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 bg-grid opacity-60"
+        aria-hidden
+      />
       <Sidebar
         active={active}
         onSelect={handleSelect}
@@ -84,7 +89,7 @@ function App() {
 
       <Topbar onDownload={handleDownload} onPrint={handleDownload} />
 
-      <main className="md:ml-[300px]">
+      <main className="relative z-10 md:ml-[300px]">
         <div className="pt-14 md:pt-0">
           <div className="container-cv">
             <HeroSection onJump={handleSelect} />

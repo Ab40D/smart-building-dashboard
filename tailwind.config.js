@@ -26,6 +26,9 @@ export default {
           600: '#1D4ED8',
           400: '#3B82F6',
         },
+        signal: {
+          DEFAULT: '#10B981', // "online" green for status dots
+        },
         muted: {
           DEFAULT: '#6B7280',
           400: '#9CA3AF',
@@ -41,6 +44,15 @@ export default {
       },
       maxWidth: {
         prose2: '72ch',
+      },
+      keyframes: {
+        'fade-up': {
+          '0%': { opacity: 0, transform: 'translateY(6px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'fade-up': 'fade-up 0.5s ease-out both',
       },
     },
   },

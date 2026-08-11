@@ -14,16 +14,58 @@ type HeroSectionProps = {
   onJump: (id: string) => void
 }
 
+const liveStack = [
+  { label: 'KNX / ETS6', state: 'online' },
+  { label: 'MQTT Broker', state: 'online' },
+  { label: 'Node-RED', state: 'online' },
+  { label: 'Home Assistant', state: 'online' },
+  { label: 'ESP32 Mesh', state: 'online' },
+]
+
 export function HeroSection({ onJump }: HeroSectionProps) {
   return (
     <section id="home" className="scroll-mt-20 pt-10 pb-12 md:pt-16 md:pb-20">
       <div className="grid gap-10 md:grid-cols-12 md:items-start">
         {/* Left — photo + meta column */}
         <div className="md:col-span-4">
-          <ProfilePhoto
-            size={240}
-            className="w-full max-w-[240px] aspect-square border border-paper-200"
-          />
+          <div className="group relative w-full sm:max-w-[240px]">
+            <div className="relative">
+              <ProfilePhoto
+                size={240}
+                className="w-full max-w-[240px] aspect-square border border-paper-200"
+              />
+              {/* CAD corner brackets — visible on hover */}
+              <span className="corners" aria-hidden />
+              {/* Online indicator on photo */}
+              <span className="corner-mark" aria-hidden />
+            </div>
+            {/* Status micro-panel under the photo */}
+            <div className="mt-4 border border-paper-200 bg-white">
+              <div className="flex items-center justify-between border-b border-paper-200 px-3 py-2">
+                <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider2 text-muted">
+                  <span className="pulse-dot" aria-hidden />
+                  System status
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-wider2 text-signal">
+                  Online
+                </span>
+              </div>
+              <ul className="px-3 py-2 space-y-1.5">
+                {liveStack.map((s) => (
+                  <li
+                    key={s.label}
+                    className="flex items-center justify-between text-[11px] font-mono text-ink-800"
+                  >
+                    <span>{s.label}</span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
+                      <span className="text-muted">{s.state}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
           <div className="mt-6 space-y-3">
             <p className="flex items-center gap-2 text-[13px] text-ink-800">
@@ -82,16 +124,20 @@ export function HeroSection({ onJump }: HeroSectionProps) {
 
         {/* Right — name, headline, CTAs */}
         <div className="md:col-span-8">
-          <p className="h-eyebrow">Portfolio · Online since 2026</p>
+          <p className="flex items-center gap-2 h-eyebrow">
+            <span className="pulse-dot" aria-hidden />
+            Portfolio · Online since 2026
+          </p>
 
-          <h1 className="mt-4 font-display text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-ink-900">
+          <h1 className="mt-4 font-display text-[2.5rem] sm:text-5xl md:text-6xl font-bold leading-[0.95] tracking-tight text-ink-900">
             {profile.firstName}
             <br />
             <span className="text-accent">{profile.lastName}</span>
           </h1>
 
           <p className="mt-5 font-display text-xl md:text-2xl text-ink-800 max-w-prose2">
-            {profile.title} · <span className="text-muted">{profile.tagline}</span>
+            {profile.title} ·{' '}
+            <span className="text-muted">{profile.tagline}</span>
           </p>
 
           <p className="mt-6 text-[15px] leading-[1.7] text-ink-800 max-w-prose2">
@@ -106,26 +152,26 @@ export function HeroSection({ onJump }: HeroSectionProps) {
             <button
               type="button"
               onClick={() => onJump('projects')}
-              className="inline-flex items-center gap-2 bg-ink-900 text-white px-5 py-3 text-[12px] font-mono uppercase tracking-wider2 hover:bg-accent transition-colors"
+              className="group/cta inline-flex items-center gap-2 bg-ink-900 text-white px-5 py-3 text-[12px] font-mono uppercase tracking-wider2 hover:bg-accent transition-colors"
             >
               See my projects
-              <IconArrowRight className="h-3.5 w-3.5" />
+              <IconArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
             </button>
             <button
               type="button"
               onClick={() => onJump('videos')}
-              className="inline-flex items-center gap-2 border border-ink-900 text-ink-900 px-5 py-3 text-[12px] font-mono uppercase tracking-wider2 hover:bg-ink-900 hover:text-white transition-colors"
+              className="group/cta inline-flex items-center gap-2 border border-ink-900 text-ink-900 px-5 py-3 text-[12px] font-mono uppercase tracking-wider2 hover:bg-ink-900 hover:text-white transition-colors"
             >
               Watch the videos
-              <IconArrowRight className="h-3.5 w-3.5" />
+              <IconArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
             </button>
             <button
               type="button"
               onClick={() => onJump('contact')}
-              className="inline-flex items-center gap-2 px-3 py-3 text-[12px] font-mono uppercase tracking-wider2 text-ink-900 hover:text-accent"
+              className="group/cta inline-flex items-center gap-2 px-3 py-3 text-[12px] font-mono uppercase tracking-wider2 text-ink-900 hover:text-accent"
             >
               Get in touch
-              <IconArrowRight className="h-3.5 w-3.5" />
+              <IconArrowRight className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-1" />
             </button>
           </div>
 
@@ -148,11 +194,17 @@ export function HeroSection({ onJump }: HeroSectionProps) {
       </div>
 
       {/* Now / currently band */}
-      <div className="mt-12 md:mt-16 border border-ink-900 bg-ink-900 text-white">
-        <div className="grid gap-px md:grid-cols-4 bg-ink-900">
+      <div className="mt-12 md:mt-16 relative border border-ink-900 bg-ink-900 text-white overflow-hidden">
+        {/* faint dotted bg on the dark band */}
+        <div
+          className="absolute inset-0 opacity-40 bg-dots-dark pointer-events-none"
+          aria-hidden
+        />
+        <div className="relative grid gap-px md:grid-cols-4 bg-ink-900">
           {profile.now.map((n) => (
             <div key={n.label} className="bg-ink-900 px-5 py-5">
-              <p className="font-mono text-[10px] uppercase tracking-wider2 text-accent">
+              <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider2 text-accent">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
                 {n.label}
               </p>
               <p className="mt-2 text-[14px] leading-[1.55] text-white/90">{n.value}</p>

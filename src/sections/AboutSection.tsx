@@ -52,7 +52,9 @@ export function AboutSection() {
         </div>
 
         <div className="md:col-span-5 space-y-6">
-          <div className="border border-paper-200 bg-paper-50 p-6">
+          <div className="relative border border-paper-200 bg-paper-50 p-6 overflow-hidden">
+            {/* corner accent */}
+            <span className="absolute top-0 right-0 h-3 w-3 border-t-2 border-r-2 border-accent" aria-hidden />
             <p className="h-eyebrow">Professional profile</p>
             <p className="mt-3 text-[13px] text-ink-800 leading-[1.65]">
               Six engineering domains, working together. They let me take a system from idea to
@@ -60,7 +62,10 @@ export function AboutSection() {
             </p>
             <ul className="mt-5 grid grid-cols-2 gap-px bg-paper-200">
               {pillars.map(({ icon: Icon, label }) => (
-                <li key={label} className="flex items-center gap-2 bg-white px-3 py-2.5">
+                <li
+                  key={label}
+                  className="group flex items-center gap-2 bg-white px-3 py-2.5 hover:bg-paper-50 transition-colors"
+                >
                   <Icon className="h-4 w-4 text-accent" />
                   <span className="text-[12px] font-medium text-ink-900">{label}</span>
                 </li>

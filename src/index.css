@@ -43,13 +43,237 @@
     @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider2 bg-accent text-white;
   }
   .nav-item {
-    @apply flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium uppercase tracking-wider2 text-white/70 hover:text-white transition-colors;
+    @apply relative flex items-center px-4 py-2.5 text-[13px] font-medium uppercase tracking-wider2 text-white/70 hover:text-white transition-colors;
   }
   .nav-item-active {
     @apply bg-accent text-white;
   }
+  .nav-item-active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 18px;
+    background: #FFFFFF;
+  }
+  .nav-item:not(.nav-item-active):hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 18px;
+    background: #2563EB;
+  }
   .link-quiet {
     @apply text-ink-700 hover:text-accent transition-colors;
+  }
+
+  /* ───── Engineering-tech flourishes ───── */
+
+  /* Subtle grid background, only at the very bottom of the visual stack */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(10, 10, 10, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 10, 10, 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-dots {
+    background-image: radial-gradient(rgba(10, 10, 10, 0.12) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .bg-dots-dark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  /* Live status pulse */
+  .pulse-dot {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #2563EB;
+  }
+  .pulse-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 9999px;
+    border: 1px solid #2563EB;
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse-ring {
+    0%   { transform: scale(0.7); opacity: 0.9; }
+    80%  { transform: scale(1.6); opacity: 0; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* "tech line" — hairline with measurement ticks at both ends */
+  .tech-line {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(to right, rgba(10,10,10,0.0) 0%, rgba(10,10,10,0.25) 8%, rgba(10,10,10,0.25) 92%, rgba(10,10,10,0.0) 100%);
+  }
+  .tech-line::before,
+  .tech-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    background: #0A0A0A;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .tech-line::before { left: 0; }
+  .tech-line::after  { right: 0; transform: translate(50%, -50%) rotate(45deg); }
+
+  /* "tick" line for nav / section header — dots at intervals */
+  .tick-line {
+    position: relative;
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(to right, rgba(10,10,10,0.18), rgba(10,10,10,0.18));
+  }
+  .tick-line::before,
+  .tick-line::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    width: 5px;
+    height: 5px;
+    background: #0A0A0A;
+    border-radius: 9999px;
+  }
+  .tick-line::before { left: 0; }
+  .tick-line::after  { right: 0; }
+  .tick-line-mid {
+    position: absolute;
+    top: -1.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 3px;
+    background: #2563EB;
+    border-radius: 9999px;
+  }
+
+  /* CAD-style corner brackets (top-left and bottom-right) for photo / cards */
+  .corners {
+    position: relative;
+  }
+  .corners::before,
+  .corners::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #2563EB;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+  .corners::before {
+    top: -4px;
+    left: -4px;
+    border-right: none;
+    border-bottom: none;
+  }
+  .corners::after {
+    bottom: -4px;
+    right: -4px;
+    border-left: none;
+    border-top: none;
+  }
+  .group:hover .corners::before,
+  .group:hover .corners::after,
+  .corners-always::before,
+  .corners-always::after {
+    opacity: 1;
+  }
+
+  /* "Signal bar" used on hero / status badges */
+  .signal-bars {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+  }
+  .signal-bars span {
+    width: 3px;
+    background: currentColor;
+    border-radius: 1px;
+    opacity: 0.35;
+  }
+  .signal-bars span:nth-child(1) { height: 30%; }
+  .signal-bars span:nth-child(2) { height: 55%; }
+  .signal-bars span:nth-child(3) { height: 80%; }
+  .signal-bars span:nth-child(4) { height: 100%; opacity: 1; }
+
+  /* The "scan" line, used once on the featured project */
+  .scan-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(37,99,235,0.7), transparent);
+    animation: scan 3.2s linear infinite;
+  }
+  @keyframes scan {
+    0%   { top: 0%; opacity: 0; }
+    20%  { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* "draw" animation for hover underline on nav items */
+  .draw-x {
+    background-image: linear-gradient(to right, currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition: background-size 220ms ease;
+  }
+  .group:hover .draw-x { background-size: 100% 1px; }
+
+  /* Sidebar scanlines — very subtle, only on the dark sidebar */
+  .sidebar-scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.018) 0,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
+  /* Photo "ready" green check corner mark */
+  .corner-mark {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    background: #10B981;
+    border: 2px solid #FFFFFF;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+  }
+
+  /* "knx/mqtt/esp32" status mini-rows */
+  .status-row {
+    @apply flex items-center justify-between text-[11px] font-mono uppercase tracking-wider2 text-muted;
+  }
+  .status-row .status-dot {
+    @apply h-1.5 w-1.5 rounded-full bg-accent;
   }
 }
 
@@ -63,7 +287,6 @@
     background: #ffffff !important;
     color: #000000 !important;
   }
-  /* Hide everything except the printable CV */
   .no-print, header.no-print, aside.no-print, nav.no-print, button.no-print, .sidebar-print-hide {
     display: none !important;
   }
@@ -81,7 +304,6 @@
   .print-page a { color: #000; text-decoration: none; }
   .print-page ul { margin: 4pt 0 8pt 18pt; }
   .print-page li { margin: 2pt 0; }
-  /* No tables, no flex decoration on print */
   .print-page table, .print-page .grid, .print-page .flex { display: block !important; }
   .print-page * {
     box-shadow: none !important;
@@ -91,18 +313,3 @@
 }
 
 .print-only { display: none; }
-
-/* Lazy-YouTube: when upgraded, the anchor becomes a responsive iframe wrapper */
-.video-embed.is-playing {
-  border-color: #0A0A0A;
-}
-.video-embed.is-playing .video-frame {
-  position: relative;
-}
-.video-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}

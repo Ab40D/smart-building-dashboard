@@ -17,7 +17,12 @@ export function ContactSection() {
       <SectionHeader
         index="08 / CONTACT"
         title="Let’s build something real."
-        kicker="Open to opportunities"
+        kicker={
+          <span className="flex items-center gap-2">
+            <span className="pulse-dot" aria-hidden />
+            Open to opportunities
+          </span>
+        }
       />
 
       <div className="grid gap-10 md:grid-cols-12">
