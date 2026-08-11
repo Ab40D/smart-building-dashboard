@@ -5,6 +5,7 @@ import {
   IconGithub,
   IconLinkedin,
   IconYoutube,
+  IconTiktok,
   IconMail,
   IconPin,
 } from '../components/icons'
@@ -65,6 +66,17 @@ export function HeroSection({ onJump }: HeroSectionProps) {
             >
               <IconYoutube className="h-4 w-4" />
             </a>
+            {profile.links.tiktok && (
+              <a
+                href={profile.links.tiktok}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="TikTok"
+                className="flex h-10 w-10 items-center justify-center border border-paper-200 text-ink-900 hover:border-ink-900 hover:bg-ink-900 hover:text-white transition-colors"
+              >
+                <IconTiktok className="h-4 w-4" />
+              </a>
+            )}
           </div>
         </div>
 

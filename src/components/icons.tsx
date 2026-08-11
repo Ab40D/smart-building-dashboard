@@ -201,3 +201,12 @@ export function IconCheck(props: IconProps) {
     </svg>
   )
 }
+
+export function IconTiktok(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M14 4v9a4 4 0 1 1-4-4" />
+      <path d="M14 4c0 2.5 2 4.5 4.5 4.5" />
+    </svg>
+  )
+}

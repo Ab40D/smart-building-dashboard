@@ -1,6 +1,6 @@
-# Abdelkhalek Mammeri — Online CV
+# Abdelkhalek Mammeri — Portfolio
 
-Personal online CV / web resume for **Abdelkhalek Mammeri** — Electronics Engineer focused on
+Personal portfolio website for **Abdelkhalek Mammeri** — Electronics Engineer focused on
 Smart Buildings, Building Automation (BMS / KNX), Industrial IoT and Embedded Systems.
 
 > A serious engineering profile, not a generic developer portfolio.
@@ -11,7 +11,8 @@ Smart Buildings, Building Automation (BMS / KNX), Industrial IoT and Embedded Sy
 - **Vite** for dev server and build
 - **Tailwind CSS** for styling
 - Centralized content in `src/data/` (profile, experience, education, projects, skills,
-  certifications, languages, navigation)
+  certifications, languages, videos, navigation)
+- Zero other runtime dependencies
 
 ## Run locally
 
@@ -24,20 +25,35 @@ npm run preview  # preview production build
 
 ## Sections
 
-- **About** — professional introduction + engineering profile pillars
+- **Home** — hero with photo, headline, CTAs, quick stats, "Now / Currently" band
+- **Projects** — featured (Smart Room) + supporting engineering projects with GitHub links
+- **Videos** — privacy-friendly YouTube embeds
+- **About** — engineering profile pillars + channel bio
 - **Experience** — internships and work history
 - **Education** — degree + final-year project
-- **Projects** — featured (Smart Room) + supporting engineering projects with GitHub links
 - **Skills** — grouped by domain (no fake percentages)
 - **Certifications** — completed certifications, courses and training
-- **Contact** — email, phone, GitHub, LinkedIn, YouTube
+- **Contact** — email, phone, GitHub, LinkedIn, YouTube, TikTok (if configured)
+
+## How to update content
+
+Everything lives in `src/data/`. Open the file, edit the value, save — the dev server
+hot-reloads. See [`RESUME.md`](./RESUME.md) for the full bilingual (Arabic + English)
+guide on:
+
+- How the website is built (architecture, file structure, design system)
+- How to add a new project
+- How to add a new YouTube video
+- How to add TikTok
+- How to update skills, certifications, experience, education
+- How to add the profile photo
 
 ## Download / Print CV
 
-The website includes a **Download CV** button (top-right) and a **Print** button.
-Both trigger the browser's native print dialog with an **ATS-friendly** single-column
-layout: no tables, no decorative graphics, all information in plain readable text with
-real URLs. In the print dialog, choose **"Save as PDF"** to download.
+The top bar has **Download CV** and **Print** buttons that trigger the browser's
+print dialog with an **ATS-friendly** single-column layout: no tables, no decorative
+graphics, all information in plain readable text with real URLs. In the print dialog,
+choose **"Save as PDF"** to download.
 
 ## Author
 

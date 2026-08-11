@@ -1,7 +1,7 @@
 import { profile } from '../data/profile'
 import { navSections } from '../data/navigation'
 import { ProfilePhoto } from './ProfilePhoto'
-import { IconGithub, IconLinkedin, IconYoutube, IconClose, IconArrowRight } from './icons'
+import { IconGithub, IconLinkedin, IconYoutube, IconTiktok, IconClose, IconArrowRight } from './icons'
 
 type SidebarProps = {
   active: string
@@ -97,6 +97,17 @@ export function Sidebar({ active, onSelect, mobileOpen, onMobileClose }: Sidebar
               >
                 <IconYoutube className="h-5 w-5" />
               </a>
+              {profile.links.tiktok && (
+                <a
+                  href={profile.links.tiktok}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="hover:text-accent"
+                  aria-label="TikTok"
+                >
+                  <IconTiktok className="h-5 w-5" />
+                </a>
+              )}
             </div>
             <p className="mt-4 text-[10px] font-mono uppercase tracking-wider2 text-white/30">
               © {new Date().getFullYear()} · El Bayadh, Algeria
@@ -199,6 +210,17 @@ export function Sidebar({ active, onSelect, mobileOpen, onMobileClose }: Sidebar
               >
                 <IconYoutube className="h-5 w-5" />
               </a>
+              {profile.links.tiktok && (
+                <a
+                  href={profile.links.tiktok}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="hover:text-accent"
+                  aria-label="TikTok"
+                >
+                  <IconTiktok className="h-5 w-5" />
+                </a>
+              )}
             </div>
           </div>
         </div>

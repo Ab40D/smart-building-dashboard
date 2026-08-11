@@ -7,6 +7,7 @@ import {
   IconGithub,
   IconLinkedin,
   IconYoutube,
+  IconTiktok,
   IconArrowRight,
 } from '../components/icons'
 
@@ -108,6 +109,24 @@ export function ContactSection() {
                   </span>
                 </a>
               </li>
+              {profile.links.tiktok && (
+                <li>
+                  <a
+                    href={profile.links.tiktok}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="flex items-center justify-between gap-3 group border border-paper-200 bg-white px-4 py-3 hover:border-ink-900"
+                  >
+                    <span className="flex items-center gap-3">
+                      <IconTiktok className="h-4 w-4 text-ink-900" />
+                      <span className="font-medium text-ink-900">TikTok</span>
+                    </span>
+                    <span className="font-mono text-[12px] text-muted truncate max-w-[180px]">
+                      @abdelkhalekmammeri
+                    </span>
+                  </a>
+                </li>
+              )}
             </ul>
 
             <a

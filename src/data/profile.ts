@@ -28,6 +28,8 @@ export const profile = {
     githubOrg: 'https://github.com/Ab40D?tab=repositories',
     linkedin: 'https://www.linkedin.com/in/abdelkhalekmammeri/',
     youtube: 'https://www.youtube.com/@abdelkhalekmammeri',
+    // Add your TikTok URL here when you're ready (leave empty string to hide it).
+    tiktok: '',
   },
   summary: {
     intro:
